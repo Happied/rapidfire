@@ -18,8 +18,8 @@ module Rapidfire
     end
 
     attr_accessor :survey, :question, :default_text, :placeholder,
-      :type, :question_text, :position, :answer_options, :answer_presence,
-      :answer_minimum_length, :answer_maximum_length,
+      :type, :question_text, :position, :answer_options, :hubspot_id,
+      :answer_presence, :answer_minimum_length, :answer_maximum_length,
       :answer_greater_than_or_equal_to, :answer_less_than_or_equal_to
 
     delegate :valid?, :errors, :to => :question
@@ -59,6 +59,7 @@ module Rapidfire
         :default_text => default_text,
         :placeholder => placeholder,
         :answer_options => answer_options,
+        :hubspot_id => hubspot_id,
         :validation_rules => {
           :presence => answer_presence,
           :minimum  => answer_minimum_length,
@@ -77,6 +78,7 @@ module Rapidfire
       self.default_text    = question.default_text
       self.placeholder     = question.placeholder
       self.answer_options  = question.answer_options
+      self.hubspot_id      = question.hubspot_id
       self.answer_presence = question.rules[:presence]
       self.answer_minimum_length = question.rules[:minimum]
       self.answer_maximum_length = question.rules[:maximum]
